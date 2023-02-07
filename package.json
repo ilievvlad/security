@@ -2,7 +2,7 @@
 	"name": "react-template",
 	"version": "1.0.0",
 	"private": true,
-	"homepage": "https://name_user.github.io/name_repository",
+	"homepage": "https://ilievvlad.github.io/security",
 	"dependencies": {
 		"@testing-library/jest-dom": "latest",
 		"@testing-library/react": "latest",

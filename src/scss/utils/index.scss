@@ -1,0 +1,20 @@
+// Mixins
+@import "./mixins";
+
+// Minimum page width
+$minWidth: 320;
+// Layout width
+$maxWidth: 1440;
+// Bounding container width
+$maxWidthContainer: 1240;
+// Container's overall padding
+$containerPadding: 30;
+
+// Container width
+$containerWidth: $maxWidthContainer + $containerPadding;
+
+// Breakpoints
+$desk: em($containerWidth);
+$tab: em(991.98);
+$mob: em(767.98);
+$mobSmall: em(479.98);

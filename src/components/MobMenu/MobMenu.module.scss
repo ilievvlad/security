@@ -1,0 +1,87 @@
+@import "../../scss/utils/index.scss";
+
+.mobInner {
+	display: flex;
+	flex-direction: column;
+	row-gap: rem(30);
+
+	position: fixed;
+	top: 0;
+	right: -100%;
+	height: 100%;
+	width: 100%;
+	padding: rem(200) rem(15) rem(30) rem(15);
+	overflow: auto;
+	background-color: var(--dark);
+	transition: right var(--calmer);
+
+	&::before {
+		content: "";
+		position: fixed;
+		z-index: 5;
+		width: 100%;
+		height: 70px;
+		top: 0;
+		right: -100%;
+		background-color: var(--dark);
+		transition: right var(--calmer);
+	}
+
+	@media (min-width: $mob) {
+		display: none;
+	}
+
+	&.menuActive {
+		right: 0;
+
+		&::before {
+			right: 0;
+		}
+	}
+}
+.mobList {
+	margin-bottom: auto;
+}
+.mobItem {
+	&:not(:last-child) {
+		margin-bottom: rem(15);
+	}
+}
+.mobLink {
+	display: flex;
+	align-items: center;
+	@include adaptiveValue("column-gap", 140, 50, 768, 320, 1);
+	text-transform: uppercase;
+	font-size: rem(26);
+	padding: rem(3) 0;
+
+	span {
+		font-size: rem(12);
+		transform: rotate(-90deg);
+	}
+
+	&:hover {
+		color: var(--accent);
+	}
+	&:focus-visible {
+		@extend %focusVisible;
+	}
+}
+.mobConnection {
+	display: flex;
+	margin-top: rem(20);
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	row-gap: rem(4);
+	white-space: nowrap;
+
+	@media (min-width: $mobSmall) {
+		display: none;
+	}
+}
+.mobLangList {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}

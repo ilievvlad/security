@@ -1,0 +1,16 @@
+/* Fonts */
+@import "./scss/fonts/fonts";
+@import url(https://fonts.googleapis.com/css?family=Montserrat:regular,500,600&display=swap);
+@import "./scss/fonts/icons";
+
+/* Variables */
+@import "./scss/utils/variables";
+
+/* Normalizing styles in the browser */
+@import "./scss/base/normalize";
+
+// Utils
+@import "./scss/utils/index";
+
+// Components
+@import "./scss/components/index";

@@ -4,12 +4,20 @@
 	"private": true,
 	"homepage": "https://ilievvlad.github.io/security",
 	"dependencies": {
+		"@reduxjs/toolkit": "^1.9.2",
 		"@testing-library/jest-dom": "latest",
 		"@testing-library/react": "latest",
 		"@testing-library/user-event": "latest",
+		"body-scroll-lock": "^4.0.0-beta.0",
+		"html-react-parser": "latest",
+		"lightgallery": "latest",
+		"prop-types": "latest",
 		"react": "latest",
 		"react-dom": "latest",
+		"react-redux": "^8.0.5",
+		"react-router-dom": "latest",
 		"react-scripts": "latest",
+		"sass": "latest",
 		"web-vitals": "latest"
 	},
 	"scripts": {

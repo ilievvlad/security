@@ -1,0 +1,70 @@
+@import "../../scss/utils/index.scss";
+
+.gallery {
+	@include adaptiveValue("padding-top", 100, 60);
+	@include adaptiveValue("padding-bottom", 100, 60);
+}
+.container {
+	max-width: rem(1000);
+}
+.title {
+	margin-bottom: rem(30);
+	line-height: 2;
+
+	&::after {
+		content: "";
+		display: block;
+		width: 80%;
+		height: 3px;
+		border-radius: 5px;
+		background-color: var(--accent);
+		margin: 0 rem(-15);
+	}
+
+	@media (min-width: $mobSmall) {
+		line-height: 1.6;
+		&::after {
+			width: 60%;
+		}
+	}
+	@media (max-width: $tab) {
+		&::after {
+			margin: 0;
+			width: 50%;
+		}
+	}
+}
+.galleryItems {
+	display: flex;
+	flex-wrap: wrap;
+	gap: rem(5);
+
+	@media (max-width: $tab) {
+		margin: 0 rem(-15);
+	}
+}
+.galleryItem {
+	@include flexBased(2, rem(5));
+
+	img {
+		@include adaptiveValue("height", 290, 160);
+	}
+
+	@media (min-width: $mob) {
+		@include flexBased(3, rem(5));
+	}
+}
+.gallerySlide {
+	img {
+		min-width: 100%;
+		@include adaptiveValue("height", 320, 220);
+		filter: brightness(60%);
+		transition: filter var(--base);
+
+		&:hover {
+			img {
+				filter: brightness(100%);
+			}
+		}
+	}
+}

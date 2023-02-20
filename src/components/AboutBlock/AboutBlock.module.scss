@@ -1,0 +1,82 @@
+@import "../../scss/utils/index.scss";
+
+.aboutBlock {
+	@include adaptiveValue("padding-top", 100, 60);
+	@include adaptiveValue("padding-bottom", 100, 60);
+}
+.inner {
+	display: flex;
+	flex-direction: column-reverse;
+	@include adaptiveValue("gap", 50, 40);
+
+	@media (min-width: $tab) {
+		flex-direction: row;
+	}
+}
+.innerColumn {
+	@media (max-width: $tab) {
+		flex-direction: column;
+		align-items: center;
+	}
+}
+.aboutImg {
+	flex-basis: 40%;
+	img {
+		border-radius: 5px;
+		filter: brightness(60%);
+	}
+
+	@media (max-width: $tab) {
+		margin-bottom: rem(20);
+	}
+}
+.content {
+	flex-basis: 60%;
+	padding-right: rem(15);
+	position: relative;
+
+	&::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		right: 0;
+		height: 100%;
+		width: 3px;
+		border-radius: 5px;
+		background-color: var(--accent);
+	}
+}
+.aboutTitle {
+	margin-bottom: rem(30);
+}
+.aboutText {
+	font-family: var(--font-secondary);
+	color: var(--light-gray);
+	@include adaptiveValue("font-size", 16, 13);
+	line-height: 1.4;
+
+	p {
+		&:not(:last-child) {
+			@include adaptiveValue("margin-bottom", 30, 20);
+		}
+	}
+}
+.aboutTextAccent {
+	font-weight: 600;
+}
+.aboutBtn {
+	display: none;
+
+	@media (min-width: $tab) {
+		display: inline-block;
+		margin-top: rem(30);
+	}
+}
+.aboutBtnMob {
+	display: inline-block;
+	margin: 0 auto;
+
+	@media (min-width: $tab) {
+		display: none;
+	}
+}

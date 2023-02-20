@@ -1,0 +1,115 @@
+@import "../../scss/utils/index.scss";
+
+.benefitsBlock {
+	@include adaptiveValue("padding-top", 100, 60);
+	@include adaptiveValue("padding-bottom", 100, 60);
+}
+.benefitsTitle {
+	margin-bottom: rem(40);
+}
+.tabs {
+	display: flex;
+	flex-direction: column;
+	row-gap: rem(8);
+	margin-bottom: rem(30);
+
+	@media (min-width: $mobSmall) {
+		row-gap: rem(15);
+	}
+	@media (min-width: $mob) {
+		margin-bottom: rem(40);
+	}
+}
+.tab {
+	position: relative;
+	display: flex;
+	align-items: center;
+	@include adaptiveValue("column-gap", 20, 10);
+	width: 100%;
+	padding: rem(15) rem(10);
+	border-radius: 5px;
+	background-color: var(--dark);
+	cursor: pointer;
+	@include adaptiveValue("font-size", 16, 12);
+	line-height: 1.4;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	border: 1px solid var(--body-bg);
+	transition: border var(--base);
+
+	span {
+		font-weight: 700;
+		color: var(--accent);
+	}
+	p {
+		flex: 0 0 15px;
+		width: 15px;
+		height: 15px;
+		position: relative;
+		margin-left: auto;
+
+		span {
+			position: absolute;
+			background-color: var(--accent);
+			transition: all var(--base);
+		}
+		span:first-of-type {
+			top: 0;
+			bottom: 0;
+			width: 10%;
+			left: 45%;
+		}
+		span:last-of-type {
+			left: 0;
+			right: 0;
+			height: 10%;
+			top: 45%;
+		}
+	}
+
+	@media (min-width: em(550)) {
+		padding: rem(20) rem(20);
+	}
+	@media (min-width: $mob) {
+		padding: rem(20) rem(80) rem(20) rem(40);
+	}
+
+	&.tabActive {
+		border-color: var(--accent);
+		p span:first-of-type,
+		p span:last-of-type {
+			transform: rotate(90deg);
+		}
+		p span:last-of-type {
+			left: 50%;
+			right: 50%;
+		}
+	}
+
+	&:focus-within {
+		border-color: var(--accent);
+	}
+}
+.item {
+	font-family: var(--font-secondary);
+	color: var(--light-gray);
+	@include adaptiveValue("font-size", 16, 12);
+	line-height: 1.4;
+	padding: 0 rem(3);
+	opacity: 0;
+	transition: opacity ease-in 0.5s;
+
+	p {
+		&:not(:last-child) {
+			margin-bottom: rem(12);
+		}
+	}
+
+	@media (min-width: $mob) {
+		padding: 0 rem(30);
+	}
+
+	&.itemActive {
+		opacity: 1;
+	}
+}

@@ -1,0 +1,172 @@
+@import "../../scss/utils/index.scss";
+
+.hero {
+	position: relative;
+	min-height: 100vh;
+}
+.video {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	filter: brightness(60%);
+}
+.content {
+	position: absolute;
+	top: 70%;
+	transform: translateY(-70%);
+
+	@media (max-width: $mobSmall) {
+		top: 80%;
+		min-width: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		padding: 0 rem(15);
+		margin: 0 rem(-15);
+	}
+}
+.heroSubTitle {
+	display: block;
+	font-weight: 700;
+	@include adaptiveValue("font-size", 100, 36);
+	letter-spacing: 0.08em;
+	color: rgba(172, 173, 148, 0.6);
+	margin-bottom: rem(20);
+}
+.heroTitle {
+	font-weight: 700;
+	line-height: 1.2;
+	@include adaptiveValue("font-size", 40, 22);
+	@include adaptiveValue("margin-bottom", 30, 20);
+
+	@media (max-width: $mobSmall) {
+		text-align: center;
+	}
+}
+
+.services {
+	@include adaptiveValue("padding-top", 100, 60);
+	@include adaptiveValue("padding-bottom", 100, 60);
+}
+.servicesTitle {
+	@include adaptiveValue("margin-bottom", 50, 40);
+}
+.servicesList {
+	display: flex;
+	flex-wrap: wrap;
+	gap: rem(30);
+}
+.servicesItem {
+	@include flexBased(1);
+
+	@media (min-width: em(678)) {
+		@include flexBased(2);
+	}
+	@media (min-width: $tab) {
+		@include flexBased(3);
+	}
+}
+.servicesLink {
+	display: flex;
+	flex-direction: column;
+	min-height: 100%;
+	background-color: var(--dark);
+	border-radius: 7px;
+	padding: rem(40);
+	transition: all var(--base);
+
+	span {
+		font-family: var(--font-secondary);
+		font-weight: 500;
+		@include adaptiveValue("font-size", 50, 40);
+		color: var(--gray);
+		align-self: flex-end;
+		margin-bottom: rem(10);
+	}
+
+	&::before {
+		@include adaptiveValue("font-size", 50, 35);
+		color: var(--accent);
+	}
+	&:hover {
+		transform: translateY(rem(-15));
+		box-shadow: inset 0 0 10px rgba(172, 173, 148, 0.5);
+		.servicesTitle {
+			color: var(--accent);
+		}
+	}
+	&:focus-visible {
+		@extend %focusVisible;
+	}
+}
+.servicesTitle {
+	@include adaptiveValue("font-size", 20, 14);
+	line-height: 1.4;
+	text-transform: uppercase;
+	word-spacing: 0.3em;
+	flex: 1 1 auto;
+	transition: color var(--base);
+}
+
+.facts {
+	@include adaptiveValue("padding-top", 120, 80);
+	@include adaptiveValue("padding-bottom", 120, 80);
+	background-color: transparent;
+	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../images/man.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+}
+.factsList {
+	display: flex;
+	flex-wrap: wrap;
+	gap: rem(5);
+}
+.factsItem {
+	position: relative;
+	background-color: rgba(28, 30, 34, 0.9);
+	padding: rem(60) rem(20);
+	border-radius: 5px;
+	cursor: default;
+	@include flexBased(1, rem(5));
+
+	&:hover {
+		.factsNumber {
+			color: var(--accent);
+		}
+	}
+
+	@media (min-width: $mobSmall) {
+		@include flexBased(2, rem(5));
+	}
+	@media (min-width: $tab) {
+		@include flexBased(4, rem(5));
+	}
+}
+.factsQuantity {
+	@include adaptiveValue("font-size", 34, 20);
+	letter-spacing: 0.08em;
+	color: var(--accent);
+	display: block;
+	margin-bottom: rem(20);
+}
+.factsTitle {
+	@include adaptiveValue("font-size", 17, 13);
+	line-height: 1.4;
+	text-transform: uppercase;
+}
+.factsNumber {
+	position: absolute;
+	top: 15px;
+	right: 15px;
+	font-family: var(--font-secondary);
+	font-weight: 500;
+	@include adaptiveValue("font-size", 45, 35);
+	color: var(--gray);
+	transition: color var(--base);
+}

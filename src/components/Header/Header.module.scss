@@ -1,0 +1,227 @@
+@import "../../scss/utils/index.scss";
+
+.styledHeader {
+	position: absolute;
+	width: 100%;
+	top: 0;
+	left: 0;
+	z-index: 5;
+	background-color: rgba(0, 0, 0, 0.6);
+}
+.topInner {
+	display: flex;
+	align-items: center;
+	min-height: 70px;
+
+	@media (min-width: $mob) {
+		@include adaptiveValue("min-height", 80, 50);
+	}
+}
+.bottomInner {
+	display: none;
+
+	@media (min-width: $mob) {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		@include adaptiveValue("min-height", 50, 30);
+	}
+}
+.logo {
+	margin-right: auto;
+	position: relative;
+	z-index: 5;
+
+	img {
+		@include adaptiveValue("width", 170, 120);
+	}
+
+	&:focus-visible {
+		@extend %focusVisible;
+	}
+}
+
+.langList {
+	display: none;
+
+	@media (min-width: $mob) {
+		display: flex;
+		align-items: center;
+		@include adaptiveValue("margin-right", 60, 20);
+	}
+}
+.langItem {
+	font-size: rem(14);
+	cursor: default;
+
+	@media (min-width: $mob) {
+		@include adaptiveValue("font-size", 14, 12);
+	}
+}
+.langItemActive {
+	color: var(--accent);
+	padding: rem(5) rem(10);
+}
+.separator {
+	display: inline-block;
+	transform: translateY(-1px);
+	cursor: default;
+}
+.langLink {
+	display: inline-block;
+	padding: rem(5) rem(10);
+	transition: all var(--base);
+
+	&:hover {
+		color: var(--accent);
+		transform: translateY(-3px);
+	}
+	&:focus-visible {
+		@extend %focusVisible;
+	}
+}
+
+.connection {
+	display: none;
+
+	@media (min-width: $mobSmall) {
+		position: relative;
+		z-index: 5;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		row-gap: rem(4);
+		white-space: nowrap;
+	}
+}
+.connectionLink {
+	letter-spacing: 0.08em;
+	display: inline-block;
+	padding: rem(8) 0 rem(3);
+	transition: color var(--base);
+
+	span {
+		color: var(--accent);
+	}
+
+	&:hover {
+		color: var(--accent);
+	}
+	&:focus-visible {
+		@extend %focusVisible;
+	}
+
+	@media (min-width: $mobSmall) {
+		@include adaptiveValue("font-size", 15, 12);
+	}
+}
+.connectionBtn {
+	font-size: rem(14);
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+	padding: rem(3) 0 rem(5);
+	@extend %stripeEffect;
+
+	&:focus-visible {
+		@extend %focusVisible;
+	}
+
+	@media (min-width: $mobSmall) {
+		@include adaptiveValue("font-size", 13, 10);
+	}
+	@media (min-width: $tab) {
+		padding: rem(3) 0 rem(8);
+	}
+}
+
+.menuList {
+	display: flex;
+	@include adaptiveValue("column-gap", 60, 40);
+}
+.menuItem {
+	position: relative;
+
+	&:not(:last-child) {
+		&::after {
+			content: "";
+			position: absolute;
+			@include adaptiveValue("right", -32, -22);
+			top: 50%;
+			transform: translateY(-50%);
+			width: 4px;
+			height: 4px;
+			background-color: var(--accent);
+		}
+	}
+}
+.menuLink {
+	display: inline-block;
+	text-transform: uppercase;
+	@include adaptiveValue("font-size", 14, 11);
+	letter-spacing: 0.1em;
+	padding: rem(5) 0;
+	@extend %stripeEffect;
+
+	&:focus-visible {
+		@extend %focusVisible;
+	}
+
+	@media (min-width: $tab) {
+		padding: rem(8) 0;
+	}
+}
+
+.burger {
+	display: block;
+	position: relative;
+	z-index: 5;
+	flex: 0 0 28px;
+	height: 20px;
+	cursor: pointer;
+	span,
+	&::before,
+	&::after {
+		content: "";
+		transition: all var(--base);
+		left: 0;
+		position: absolute;
+		width: 100%;
+		height: 2px;
+		background-color: var(--accent);
+	}
+	&::before {
+		top: 0;
+	}
+	&::after {
+		bottom: 0;
+	}
+	span {
+		top: calc(50% - 1px);
+	}
+	&:focus-visible {
+		@extend %focusVisible;
+		outline-offset: 3px;
+	}
+
+	@media (min-width: $mobSmall) {
+		margin-left: rem(30);
+	}
+	@media (min-width: $mob) {
+		display: none;
+	}
+
+	&.menuActive {
+		span {
+			transform: scale(0);
+		}
+		&::before {
+			transform: rotate(-45deg);
+			top: calc(50% - 1px);
+		}
+		&::after {
+			transform: rotate(45deg);
+			bottom: calc(50% - 1px);
+		}
+	}
+}

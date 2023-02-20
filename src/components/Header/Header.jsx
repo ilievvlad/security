@@ -23,7 +23,7 @@ export const Header = () => {
 					<ul className={scss.langList}>
 						<li className={`${scss.langItem} ${scss.langItemActive}`}>UA</li>
 						<li><span className={scss.separator}>|</span></li>
-						<li className={scss.langItem}><a href="#" className={scss.langLink}>EN</a></li>
+						<li className={scss.langItem}><Link to="/" className={scss.langLink}>EN</Link></li>
 					</ul>
 					<div className={scss.connection}>
 						<a href="tel:0800777555" className={scss.connectionLink}><span>0 800</span> 777 555</a>
@@ -43,8 +43,8 @@ export const Header = () => {
 						<ul className={scss.menuList}>
 							<li className={scss.menuItem}><Link to="/" className={scss.menuLink}>Головна</Link></li>
 							<li className={scss.menuItem}><Link to="about" className={scss.menuLink}>Про нас</Link></li>
-							<li className={scss.menuItem}><a href="#" className={scss.menuLink}>Послуги</a></li>
-							<li className={scss.menuItem}><a href="#" className={scss.menuLink}>Контакти</a></li>
+							<li className={scss.menuItem}><Link to="/" className={scss.menuLink}>Послуги</Link></li>
+							<li className={scss.menuItem}><Link to="/" className={scss.menuLink}>Контакти</Link></li>
 						</ul>
 					</nav>
 				</div>

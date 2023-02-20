@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { Link } from "react-router-dom";
 import { MenuContext } from "context/navState";
 
 import scss from "./MobMenu.module.scss";
@@ -11,16 +12,16 @@ export const MobMenu = () => {
 		<nav className={`${scss.mobInner} ${isMenuOpen ? scss.menuActive : ''}`}>
 			<ul className={scss.mobList}>
 				<li className={scss.mobItem}>
-					<a href="#" className={scss.mobLink}><span>01</span>Головна</a>
+					<Link to="/" className={scss.mobLink}><span>01</span>Головна</Link>
 				</li>
 				<li className={scss.mobItem}>
-					<a href="#" className={scss.mobLink}><span>02</span>Про нас</a>
+					<Link to="/" className={scss.mobLink}><span>02</span>Про нас</Link>
 				</li>
 				<li className={scss.mobItem}>
-					<a href="#" className={scss.mobLink}><span>03</span>Послуги</a>
+					<Link to="/" className={scss.mobLink}><span>03</span>Послуги</Link>
 				</li>
 				<li className={scss.mobItem}>
-					<a href="#" className={scss.mobLink}><span>04</span>Контакти</a>
+					<Link to="/" className={scss.mobLink}><span>04</span>Контакти</Link>
 				</li>
 			</ul>
 			<div className={scss.mobConnection}>
@@ -30,7 +31,7 @@ export const MobMenu = () => {
 			<ul className={scss.mobLangList}>
 				<li className={`${s.langItem} ${s.langItemActive}`}>UA</li>
 				<li><span className={s.separator}>|</span></li>
-				<li className={s.langItem}><a href="#" className={s.langLink}>EN</a></li>
+				<li className={s.langItem}><Link to="/" className={s.langLink}>EN</Link></li>
 			</ul>
 		</nav>
 	);
